@@ -1,0 +1,50 @@
+$color-4: #ff3e79;
+$color-2: #ffffff;
+
+.btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 16px;
+}
+
+.burger {
+  background: $color-4 url('../img/burger.svg') no-repeat 50% 50%;
+}
+.call {
+  background: $color-4 url('../img/call.svg') no-repeat 50% 50%;
+}
+.chat {
+  background: $color-4 url('../img/chat.svg') no-repeat 50% 50%;
+}
+.profile {
+  background: $color-4 url('../img/profile.svg') no-repeat 50% 50%;
+}
+.repair {
+  background: $color-4 url('../img/repair.svg') no-repeat 50% 50%;
+}
+.status {
+  background: $color-4 url('../img/checkstatus.svg') no-repeat 50% 50%;
+}
+
+.btn__service {
+  text-align: left;
+  padding: 0px 12px;
+  width: 119px;
+  height: 32px;
+  border-radius: 16px;
+  color: $color-2;
+  background: $color-4 url('../img/btn-service.svg') no-repeat 90% 50%;
+  margin-left: 16px;
+}
+.btn-trading {
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  margin-top: 16px;
+  text-align: start;
+  .btn-trading__icon {
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+}

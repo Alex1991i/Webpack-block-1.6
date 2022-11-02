@@ -1,0 +1,65 @@
+$color-4: #ff3e79;
+$color-5: #eaeaea;
+$color-3: #d9fff5;
+
+.callback {
+  position: absolute;
+  z-index: 11;
+  width: 320px;
+  height: 676px;
+  top: 0;
+  right: -320px;
+  padding: 24px 16px;
+  @media (min-width: 768px) {
+    width: 440px;
+    height: 940px;
+    right: -440px;
+    border-left: 2px solid $color-3;
+  }
+  .callback__title {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.6px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 24px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -15px;
+      background-color: $color-7;
+      height: 40px;
+      width: 4px;
+    }
+    @media (min-width: 768px) {
+      margin-top: 8px;
+    }
+  }
+  .callback__inf_important {
+    color: $color-4;
+  }
+  .callback__close {
+    background: $color-4 url('../img/close.svg') no-repeat 50% 50%;
+    @media (min-width: 768px) {
+      position: absolute;
+    }
+  }
+  .callback__input {
+    border: 1px solid $color-5;
+    width: 288px;
+    height: 48px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    @media (min-width: 768px) {
+      width: 376px;
+    }
+  }
+  .callback__btn {
+    margin-top: 16px;
+    margin-left: 176px;
+    @media (min-width: 768px) {
+      margin-left: 271px;
+    }
+  }
+}
