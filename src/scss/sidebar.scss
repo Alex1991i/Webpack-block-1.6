@@ -5,12 +5,16 @@ $color-7: #41f6d7;
 $color-8: #7e7e82;
 
 .sidebar {
+  display: none;
   position: fixed;
   background: $color-2;
   min-width: 320px;
   height: 100vh;
   padding: 35px 24px;
   overflow-y: auto;
+  @media (min-width: 1440px) {
+    display: block;
+  }
   &::-webkit-scrollbar {
     width: 0;
   }

@@ -3,6 +3,7 @@ $color-5: #eaeaea;
 $color-3: #d9fff5;
 
 .callback {
+  display: none;
   position: absolute;
   z-index: 11;
   width: 320px;
@@ -27,7 +28,7 @@ $color-3: #d9fff5;
     &::before {
       content: '';
       position: absolute;
-      left: -15px;
+      left: -17px;
       background-color: $color-7;
       height: 40px;
       width: 4px;

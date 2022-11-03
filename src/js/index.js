@@ -3,56 +3,45 @@ import '../scss/style.scss'
 const windowInnerWidth = window.innerWidth
 
 if (windowInnerWidth < 768) {
-  const swiper = new Swiper('.swiper', {
+  const swiper1 = new Swiper('.swiper-brands', {
     pagination: {
-      el: '.swiper-pagination',
+      el: '.pagination-brands',
       clickable: true
     },
-    spaceBetween: 20
+    spaceBetween: 20,
+    speed: 1000,
+    loop: true
+  })
+  const swiper2 = new Swiper('.swiper-technic', {
+    pagination: {
+      el: '.pagination-technic',
+      clickable: true
+    },
+    spaceBetween: 20,
+    speed: 1000,
+    loop: true
+  })
+  const swiper3 = new Swiper('.swiper-price', {
+    pagination: {
+      el: '.pagination-price',
+      clickable: true
+    },
+    spaceBetween: 20,
+    speed: 1000,
+    loop: true
   })
 }
-
-function resizesSlide() {
-  const windowInnerWidth = window.innerWidth
-  let slidesLength = document.querySelectorAll('.brands__item')
-
-  for (let i = 0; i < slidesLength.length; i++) {
-    if (windowInnerWidth < 768 || windowInnerWidth > 1020) {
-      slidesLength[i].style.width = 240 + 'px'
-    } else {
-      slidesLength[i].style.width = 220 + 'px'
-    }
-  }
-}
-resizesSlide()
-
-function resizesSlide2() {
-  const windowInnerWidth = window.innerWidth
-  let slidesLength = document.querySelectorAll('.brands__item2')
-
-  for (let i = 0; i < slidesLength.length; i++) {
-    if (windowInnerWidth < 768 || windowInnerWidth > 1020) {
-      slidesLength[i].style.width = 240 + 'px'
-    } else {
-      slidesLength[i].style.width = 220 + 'px'
-    }
-  }
-}
-resizesSlide2()
 
 let showAllBtn = document.querySelectorAll('.arrow')
 let brandsHeight = document.querySelectorAll('.brands__container')
 
-function brandsShowAll(height, text) {
-  for (let i = 0; i < showAllBtn.length; i++) {
+for (let i = 0; i < showAllBtn.length; i++) {
+  function brandsShowAll(height, text) {
     brandsHeight[i].style.height = height
     showAllBtn[i].textContent = text
     showAllBtn[i].classList.toggle('arrow')
     showAllBtn[i].classList.toggle('arrow_transform')
   }
-}
-
-for (let i = 0; i < showAllBtn.length; i++) {
   showAllBtn[i].addEventListener('click', function () {
     if (brandsHeight[i].style.height !== '100%') {
       brandsShowAll('100%', 'Скрыть')
@@ -73,52 +62,63 @@ let callback = document.querySelectorAll('.callback')
 let callbackClose = document.querySelectorAll('.callback__close')
 
 burger.addEventListener('click', function () {
+  menu.style.display = 'block'
   body.style.opacity = 0.04
   header.style.opacity = 0.04
   menu.style.opacity = 1
-  menu.style.top = '-30px'
+  menu.style.top = '-10px'
   menu.style.left = '0px'
 })
 
-close.addEventListener('click', function () {
+const closeMenu = function () {
+  menu.style.display = 'none'
   body.style.opacity = 1
   header.style.opacity = 1
   menu.style.opacity = 0
   menu.style.top = '100px'
-})
+}
+
+close.addEventListener('click', closeMenu)
 
 for (let i = 0; i < callback.length; i++) {
   for (let i = 0; i < telephone.length; i++) {
     telephone[i].addEventListener('click', function () {
-      body.style.opacity = 0.04
-      header.style.opacity = 0.04
-      menu.style.opacity = 0.04
-      if (windowInnerWidth > 767) {
-        callback[0].style.transform = 'translateX(-440px)'
-        callbackClose[0].style.transform = 'translateX(-100px)'
-      } else {
-        callback[0].style.transform = 'translateX(-320px)'
-      }
-      callback[0].style.transition = '0.8s'
+      callback[0].style.display = 'block'
+      setTimeout(() => {
+        body.style.opacity = 0.04
+        header.style.opacity = 0.04
+        menu.style.opacity = 0.04
+        if (windowInnerWidth > 767) {
+          callback[0].style.transform = 'translateX(-440px)'
+          callbackClose[0].style.transform = 'translateX(-100px)'
+        } else {
+          callback[0].style.transform = 'translateX(-320px)'
+        }
+        callback[0].style.transition = '0.8s'
+      }, 200)
     })
   }
 
   for (let i = 0; i < chat.length; i++) {
     chat[i].addEventListener('click', function () {
-      body.style.opacity = 0.04
-      header.style.opacity = 0.04
-      menu.style.opacity = 0.04
-      if (windowInnerWidth > 767) {
-        callback[1].style.transform = 'translateX(-440px)'
-        callbackClose[1].style.transform = 'translateX(-100px)'
-      } else {
-        callback[1].style.transform = 'translateX(-320px)'
-      }
-      callback[1].style.transition = '0.8s'
+      callback[1].style.display = 'block'
+      setTimeout(() => {
+        body.style.opacity = 0.04
+        header.style.opacity = 0.04
+        menu.style.opacity = 0.04
+        if (windowInnerWidth > 767) {
+          callback[1].style.transform = 'translateX(-440px)'
+          callbackClose[1].style.transform = 'translateX(-100px)'
+        } else {
+          callback[1].style.transform = 'translateX(-320px)'
+        }
+        callback[1].style.transition = '0.8s'
+      }, 200)
     })
   }
 
   callbackClose[0].addEventListener('click', function () {
+    callback[0].style.display = 'none'
     body.style.opacity = 1
     header.style.opacity = 1
     if (windowInnerWidth > 767) {
@@ -130,9 +130,11 @@ for (let i = 0; i < callback.length; i++) {
       menu.style.opacity = 1
     }
     callback[0].style.transition = '0.8s'
+    closeMenu()
   })
 
   callbackClose[1].addEventListener('click', function () {
+    callback[1].style.display = 'none'
     body.style.opacity = 1
     header.style.opacity = 1
     if (windowInnerWidth > 767) {
@@ -144,5 +146,6 @@ for (let i = 0; i < callback.length; i++) {
       menu.style.opacity = 1
     }
     callback[1].style.transition = '0.8s'
+    closeMenu()
   })
 }
