@@ -258,6 +258,10 @@ h6 {
   border-radius: 5px;
   margin-right: 16px;
   margin-bottom: 16px; }
+  @media (min-width: 768px) and (max-width: 1120px) {
+    .brands .brands__item2 {
+      width: 220px;
+      max-width: 220px; } }
 
 .brands .brands__item3 {
   width: 260px;
