@@ -121,6 +121,7 @@ h6 {
     vertical-align: middle; }
 
 .sidebar {
+  display: none;
   position: fixed;
   background: #ffffff;
   min-width: 320px;
@@ -129,6 +130,9 @@ h6 {
   overflow-y: auto;
   opacity: 0;
   z-index: 10; }
+  @media (min-width: 1440px) {
+    .sidebar {
+      display: block; } }
   .sidebar::-webkit-scrollbar {
     width: 0; }
   .sidebar .sidebar__logo {
@@ -237,6 +241,10 @@ h6 {
   border-radius: 5px;
   margin-right: 16px;
   margin-bottom: 16px; }
+  @media (min-width: 768px) and (max-width: 1120px) {
+    .brands .brands__item {
+      width: 220px;
+      max-width: 220px; } }
 
 .brands .brands__item2 {
   display: flex;
@@ -291,13 +299,6 @@ h6 {
       margin: 0;
       align-self: center;
       margin-right: 40px; } }
-
-@media (min-width: 768px) {
-  .brands .brands__show-all {
-    display: block;
-    margin-top: 24px;
-    margin-bottom: 34px;
-    position: relative; } }
 
 .brands .brands__logo {
   padding-left: 16px; }
@@ -361,6 +362,7 @@ h6 {
   text-shadow: -3px 3px 3px gray; }
 
 .callback {
+  display: none;
   position: absolute;
   z-index: 11;
   width: 320px;
@@ -385,7 +387,7 @@ h6 {
     .callback .callback__title::before {
       content: '';
       position: absolute;
-      left: -15px;
+      left: -17px;
       background-color: #41f6d7;
       height: 40px;
       width: 4px; }
